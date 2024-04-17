@@ -6,9 +6,10 @@ import { ChevronDown, Pencil, Trash } from "lucide-react";
 import { MouseEventHandler } from 'react'
 
 interface DropDownActionsProps{
-  onDelete: MouseEventHandler
+  onDelete: MouseEventHandler,
+  onEdit: MouseEventHandler
 }
-export default function DropDownActions({ onDelete }: DropDownActionsProps) {
+export default function DropDownActions({ onDelete, onEdit }: DropDownActionsProps) {
   const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
@@ -23,6 +24,7 @@ export default function DropDownActions({ onDelete }: DropDownActionsProps) {
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem
           key="edit"
+          onClick={onEdit}
           startContent={<Pencil size={18} className={iconClasses} />}
         >
           editar

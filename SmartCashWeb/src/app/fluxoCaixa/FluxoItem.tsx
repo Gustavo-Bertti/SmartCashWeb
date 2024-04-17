@@ -2,6 +2,7 @@
 import DropDownActions from "@/components/DropDownActions";
 import { destroy } from "../actions/fluxo/destroy";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
     
 
 interface FluxoItemProps {
@@ -9,6 +10,8 @@ interface FluxoItemProps {
 }
 
 export function FluxoItem({ fluxo }: FluxoItemProps) {
+
+    const router = useRouter()
 
     function handleDelete() {
         toast.promise(
@@ -21,6 +24,7 @@ export function FluxoItem({ fluxo }: FluxoItemProps) {
         );
 
     }
+   
 
 
 
@@ -31,9 +35,10 @@ export function FluxoItem({ fluxo }: FluxoItemProps) {
                 <span>{fluxo.tipo}</span><p>,</p>
                 <span>{fluxo.descricao}</span><p>,</p>
                 <span>{fluxo.valor} reais</span><p>,</p>
-                <span className="text-amber-500">{fluxo.data}</span>
+                <span className="text-amber-500">{fluxo.dataInclusao}</span>
             </div>
-            <DropDownActions onDelete={handleDelete} />
+            <DropDownActions onDelete={handleDelete}
+            onEdit={()=>router.push("/fluxoCaixa/"+fluxo.id)} />
         </div>
     )
 }

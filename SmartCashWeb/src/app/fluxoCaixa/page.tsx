@@ -11,13 +11,13 @@ export default async function Faturamento() {
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <NavBar active="faturamento"/>
+      <NavBar active="fluxoCaixa"/>
      
       <section className="flex flex-col gap-2 bg-black mt-4 p-3 rounded min-w-[500px]">
         <div className="flex justify-between">
           <h2 className="text-2xl font-bold">Faturamentos</h2>
           <Link href="/fluxoCaixa/new">
-            <Button color="primary" startContent={<Plus />}>
+            <Button className="bg-amber-500" startContent={<Plus />}>
               Novo fluxo
             </Button>
           </Link>

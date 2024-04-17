@@ -3,5 +3,5 @@ interface Fluxo {
     tipo: string,
     valor: number,
     descricao: string,
-    data: string
+    dataInclusao: string
 }

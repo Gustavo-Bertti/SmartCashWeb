@@ -5,29 +5,30 @@ interface ValidationError {
         tipo: string,
         valor: number,
         descricao: string,
-        data: string
+        dataInclusao: string
     
 }
 
-export async function create(prevState: any, formData: FormData){
+export async function update(prevState: any, formData: FormData){
     await new Promise(r => setTimeout(r, 4000))
-
+    const id = formData.get("id");
     const data = {
         nome: formData.get("nome"),
         tipo: formData.get("tipo"),
         valor:formData.get("valor"),
-        descricao:formData.get("descricao")
+        descricao:formData.get("descricao"),
+        dataInclusao:formData.get("dataInclusao")
     }
 
     const options = {
-        method: "post",
+        method: "put",
         body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json"
         }
     }
 
-    const resp = await fetch(process.env.API_BASE_URL + "/fluxodecaixa", options)
+    const resp = await fetch(process.env.API_BASE_URL + "/fluxodecaixa/"+ id, options)
 
     if (resp.ok){
         redirect("/fluxoCaixa")
