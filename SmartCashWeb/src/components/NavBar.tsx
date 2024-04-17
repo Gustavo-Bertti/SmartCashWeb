@@ -3,7 +3,7 @@ import Logo from "../app/logo.png";
 import Image from 'next/image';
 
 interface NavBarProps {
-    active: "home" | "faturamento" | "despesa"
+    active: "home" | "faturamento"
 }
 
 export default function NavBar(props: NavBarProps){
@@ -19,9 +19,6 @@ export default function NavBar(props: NavBarProps){
                 </li>
                 <li className={active == "faturamento" ? classActive : ""}>
                     <Link href="/faturamento">faturamento</Link>
-                </li>
-                <li className={active == "despesa" ? classActive : ""}>
-                    <Link href="/despesa">despesa</Link>
                 </li>
             </ul>
             <div className="w-16 overflow-hidden">
